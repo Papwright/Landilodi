@@ -3,12 +3,12 @@
 > Malawi's trusted property marketplace connecting buyers, sellers, and renters
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/Papwright/Landlordi)
+[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/Papwright/Landilodi)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
-**🌐 [Live Demo](https://papwright.github.io/Landlordi/)** | **📖 [Documentation](#features)** | **🐛 [Report Bug](https://github.com/Papwright/Landlordi/issues)**
+**🌐 [Live Demo](https://papwright.github.io/Landilodi/)** | **📖 [Documentation](#-overview)** | **🐛 [Report Bug](https://github.com/Papwright/Landilodi/issues)**
 
 ## 📋 Overview
 

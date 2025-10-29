@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Papwright/Landlordi.git"
+    "url": "https://github.com/Papwright/Landilodi.git"
   },
   "keywords": [
     "real-estate",
@@ -26,9 +26,9 @@
   "author": "Timothy Papwright",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Papwright/Landlordi/issues"
+    "url": "https://github.com/Papwright/Landilodi/issues"
   },
-  "homepage": "https://github.com/Papwright/Landlordi#readme",
+  "homepage": "https://github.com/Papwright/Landilodi#readme",
   "dependencies": {
     "express": "^5.1.0"
   }
