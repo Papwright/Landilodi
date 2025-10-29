@@ -8,6 +8,8 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
+**🌐 [Live Demo](https://papwright.github.io/Landlordi/)** | **📖 [Documentation](#features)** | **🐛 [Report Bug](https://github.com/Papwright/Landlordi/issues)**
+
 ## 📋 Overview
 
 Landlordi is a modern web-based property marketplace designed specifically for Malawi's real estate market. The platform connects property owners, landlords, and agents with potential buyers and tenants while ensuring transparency and security in property transactions.
