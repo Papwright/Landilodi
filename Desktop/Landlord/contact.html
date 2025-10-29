@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Landlordi Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>LANDLORDI REAL ESTATES</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="properties.html" class="nav-link">Properties</a>
+                </li>
+                <li class="nav-item">
+                    <a href="reviews.html" class="nav-link">House Viewing Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a href="employees.html" class="nav-link">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active">Contact</a>
+                </li>
+                <li class="nav-item" id="authNavItem">
+                    <a href="login.html" class="nav-link" id="authNavLink">Login</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Connect with our verified property experts or post your property listing</p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-card" data-aos="fade-up">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <p>Main Office: +265 (0) 888 123 456</p>
+                    <p>Direct Line: +265 (0) 999 765 432</p>
+                    <p class="contact-note">Available Mon-Sat, 8AM-6PM</p>
+                </div>
+
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>General: info@landlordi.mw</p>
+                    <p>Property Listings: listings@landlordi.mw</p>
+                    <p class="contact-note">We respond within 24 hours</p>
+                </div>
+
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Office Location</h3>
+                    <p>Capital City Centre Building</p>
+                    <p>Area 10, Lilongwe, Malawi</p>
+                    <p class="contact-note">Walk-ins welcome</p>
+                </div>
+
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Office Hours</h3>
+                    <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                    <p>Saturday: 9:00 AM - 2:00 PM</p>
+                    <p class="contact-note">Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Send Us a Message</h2>
+                    <p>Whether you want to list a property or inquire about one, we're here to help</p>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inquiryType">Type of Inquiry *</label>
+                        <select id="inquiryType" name="inquiryType" required>
+                            <option value="">Select an option</option>
+                            <option value="property-viewing">Schedule Property Viewing</option>
+                            <option value="property-inquiry">Property Information Request</option>
+                            <option value="list-property">List My Property</option>
+                            <option value="rent-property">Rent/Lease Property</option>
+                            <option value="buy-property">Buy Property</option>
+                            <option value="agent-verification">Become a Verified Agent</option>
+                            <option value="general-inquiry">General Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="propertyInterest">Property of Interest / Location</label>
+                        <input type="text" id="propertyInterest" name="propertyInterest" placeholder="e.g., Area 43 House, Namiwawa Plot, Mzuzu Apartment">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Budget Range</label>
+                        <select id="budget" name="budget">
+                            <option value="">Select budget range</option>
+                            <option value="5-20m">MWK 5M - 20M</option>
+                            <option value="20-50m">MWK 20M - 50M</option>
+                            <option value="50-100m">MWK 50M - 100M</option>
+                            <option value="100m+">MWK 100M+</option>
+                            <option value="not-specified">Not specified</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Please describe your inquiry in detail..."></textarea>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">Get notified about new property listings in Malawi</label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">I agree to the <a href="#" class="privacy-link">Privacy Policy</a> *</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Map Section -->
+    <section class="office-map">
+        <div class="container">
+            <h2 class="section-title">Visit Our Office</h2>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Find Us in Lilongwe</h3>
+                    <p>Our office is located in the heart of Lilongwe's business district</p>
+                    <div class="map-info">
+                        <p><strong>Address:</strong> Capital City Centre Building, Area 10, Lilongwe, Malawi</p>
+                        <p><strong>Parking:</strong> Free parking available</p>
+                        <p><strong>Public Transport:</strong> Accessible by minibus and taxi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contact -->
+    <section class="emergency-contact">
+        <div class="container">
+            <div class="emergency-content">
+                <div class="emergency-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="emergency-text">
+                    <h3>Urgent Inquiries?</h3>
+                    <p>For urgent property inquiries or after-hours assistance, call our 24/7 hotline</p>
+                    <a href="tel:+15551234567" class="btn btn-secondary emergency-btn">
+                        <i class="fas fa-phone"></i>
+                        Call 24/7 Hotline
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Contact -->
+    <section class="social-contact">
+        <div class="container">
+            <h2 class="section-title">Connect With Us</h2>
+            <div class="social-grid">
+                <a href="#" class="social-card" data-aos="zoom-in">
+                    <i class="fab fa-facebook"></i>
+                    <h3>Facebook</h3>
+                    <p>Follow us for property updates and market insights</p>
+                </a>
+                <a href="#" class="social-card" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p>Exclusive property photos and behind-the-scenes content</p>
+                </a>
+                <a href="#" class="social-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Professional network and industry updates</p>
+                </a>
+                <a href="#" class="social-card" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fab fa-twitter"></i>
+                    <h3>Twitter</h3>
+                    <p>Real-time market news and property alerts</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to List or Find Property in Malawi?</h2>
+                <p>Our verified agents are here to help you buy, sell, or rent with confidence</p>
+                <div class="cta-buttons">
+                    <a href="properties.html" class="btn btn-primary">Browse Properties</a>
+                    <a href="tel:+265888123456" class="btn btn-secondary">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LANDLORDI REAL ESTATE</h3>
+                    <p>Malawi's trusted property marketplace connecting landlords, property owners with buyers and tenants. Transparent, verified, and secure.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Visit our Facebook page"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Visit our Instagram page"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Visit our LinkedIn page"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Visit our Twitter page"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="properties.html">Browse Properties</a></li>
+                        <li><a href="reviews.html">Customer Reviews</a></li>
+                        <li><a href="employees.html">Our Team</a></li>
+                        <li><a href="contact.html">Post Property</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +265 (0) 888 123 456</p>
+                    <p><i class="fas fa-envelope"></i> info@landlordi.mw</p>
+                    <p><i class="fas fa-map-marker-alt"></i> City Centre, Lilongwe, Malawi</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Landlordi Real Estate. All rights reserved. Serving Malawi's Property Market.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="contact-form.js"></script>
+    
+    <!-- Contact Form Styles -->
+    <style>
+        .contact-alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .contact-alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .contact-alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .contact-alert i:first-child {
+            font-size: 20px;
+        }
+        
+        .contact-alert span {
+            flex: 1;
+        }
+        
+        .alert-close {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            padding: 5px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .alert-close:hover {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        // Contact form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(this);
+                    const formObject = {};
+                    formData.forEach((value, key) => {
+                        formObject[key] = value;
+                    });
+                    
+                    // Basic validation
+                    let isValid = true;
+                    const requiredFields = ['firstName', 'lastName', 'email', 'inquiryType', 'message'];
+                    
+                    requiredFields.forEach(field => {
+                        const input = this.querySelector(`[name="${field}"]`);
+                        if (!input.value.trim()) {
+                            isValid = false;
+                            input.classList.add('error');
+                        } else {
+                            input.classList.remove('error');
+                        }
+                    });
+                    
+                    if (isValid) {
+                        // Show success message
+                        const submitBtn = this.querySelector('.submit-btn');
+                        const originalText = submitBtn.innerHTML;
+                        
+                        submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                        submitBtn.classList.add('success');
+                        
+                        // Reset form
+                        this.reset();
+                        
+                        // Reset button after 3 seconds
+                        setTimeout(() => {
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.classList.remove('success');
+                        }, 3000);
+                        
+                        console.log('Form submitted successfully:', formObject);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

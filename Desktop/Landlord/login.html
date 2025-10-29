@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register - Landlordi Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            padding-top: 100px;
+            padding-bottom: 50px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .auth-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .auth-sidebar {
+            flex: 1;
+            background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
+            padding: 60px 40px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .auth-sidebar h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .auth-sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .auth-sidebar li {
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-sidebar li i {
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .auth-forms {
+            flex: 1.5;
+            padding: 60px 50px;
+        }
+
+        .auth-tabs {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .auth-tab {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #6c757d;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .auth-tab.active {
+            color: #e74c3c;
+        }
+
+        .auth-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #e74c3c;
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(231, 76, 60, 0.3);
+        }
+
+        .auth-divider {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .auth-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #e9ecef;
+        }
+
+        .auth-divider span {
+            background: white;
+            padding: 0 20px;
+            position: relative;
+            color: #6c757d;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        @media (max-width: 768px) {
+            .auth-wrapper {
+                flex-direction: column;
+            }
+
+            .auth-sidebar {
+                padding: 40px 30px;
+            }
+
+            .auth-forms {
+                padding: 40px 30px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>LANDLORDI REAL ESTATE</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="properties.html" class="nav-link">Properties</a>
+                </li>
+                <li class="nav-item">
+                    <a href="reviews.html" class="nav-link">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a href="employees.html" class="nav-link">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link active">Login</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Authentication Container -->
+    <section class="auth-container">
+        <div class="container">
+            <div class="auth-wrapper">
+                <!-- Sidebar -->
+                <div class="auth-sidebar">
+                    <h2>Join Landlordi Today</h2>
+                    <p class="mb-30">Create your account to start listing properties and connecting with buyers across Malawi.</p>
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>List unlimited properties</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Respond to viewing requests</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Get verified seller badge</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Manage all your listings</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Track property inquiries</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Direct buyer communication</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Forms -->
+                <div class="auth-forms">
+                    <!-- Tabs -->
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" data-tab="login">Login</button>
+                        <button class="auth-tab" data-tab="register">Register</button>
+                    </div>
+
+                    <!-- Alert Messages -->
+                    <div id="alertContainer"></div>
+
+                    <!-- Login Form -->
+                    <form class="auth-form active" id="loginForm">
+                        <h3 class="form-heading">Welcome Back!</h3>
+                        
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address <span class="required-asterisk">*</span></label>
+                            <input type="email" id="loginEmail" name="email" required placeholder="Enter your email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loginPassword">Password <span class="required-asterisk">*</span></label>
+                            <input type="password" id="loginPassword" name="password" required placeholder="Enter your password">
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="rememberMe" name="rememberMe">
+                            <label for="rememberMe" class="no-margin">Remember me</label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-sign-in-alt"></i> Login to Your Account
+                        </button>
+
+                        <div class="auth-divider">
+                            <span>Forgot your password?</span>
+                        </div>
+
+                        <p class="text-center-secondary">
+                            <a href="#" class="link-primary">Reset Password</a>
+                        </p>
+                    </form>
+
+                    <!-- Register Form -->
+                    <form class="auth-form" id="registerForm">
+                        <h3 class="form-heading">Create Your Account</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name <span class="required-asterisk">*</span></label>
+                                <input type="text" id="firstName" name="firstName" required placeholder="John">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name <span class="required-asterisk">*</span></label>
+                                <input type="text" id="lastName" name="lastName" required placeholder="Banda">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="registerEmail">Email Address <span class="required-asterisk">*</span></label>
+                            <input type="email" id="registerEmail" name="email" required placeholder="john.banda@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required-asterisk">*</span></label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+265 888 123 456">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="accountType">Account Type <span class="required-asterisk">*</span></label>
+                            <select id="accountType" name="accountType" required>
+                                <option value="">Select account type</option>
+                                <option value="property-owner">Property Owner</option>
+                                <option value="landlord">Landlord (Rental Properties)</option>
+                                <option value="agent">Real Estate Agent</option>
+                                <option value="developer">Property Developer</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="registerPassword">Password <span class="required-asterisk">*</span></label>
+                                <input type="password" id="registerPassword" name="password" required placeholder="Min. 8 characters">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password <span class="required-asterisk">*</span></label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Re-enter password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">City/Location <span class="required-asterisk">*</span></label>
+                            <select id="location" name="location" required>
+                                <option value="">Select your location</option>
+                                <option value="lilongwe">Lilongwe</option>
+                                <option value="blantyre">Blantyre</option>
+                                <option value="mzuzu">Mzuzu</option>
+                                <option value="zomba">Zomba</option>
+                                <option value="mangochi">Mangochi</option>
+                                <option value="kasungu">Kasungu</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms" class="no-margin">
+                                I agree to the <a href="#" class="link-primary">Terms & Conditions</a> and <a href="#" class="link-primary">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter" class="no-margin">
+                                Send me property alerts and market updates
+                            </label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-user-plus"></i> Create Account
+                        </button>
+
+                        <p class="text-center-secondary mt-20">
+                            Already have an account? <a href="#" class="auth-tab link-primary fw-600" data-tab="login">Login here</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LANDLORDI REAL ESTATE</h3>
+                    <p>Malawi's trusted property marketplace connecting landlords, property owners with buyers and tenants. Transparent, verified, and secure.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="properties.html">Browse Properties</a></li>
+                        <li><a href="reviews.html">Customer Reviews</a></li>
+                        <li><a href="employees.html">Our Team</a></li>
+                        <li><a href="contact.html">Post Property</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +265 (0) 888 123 456</p>
+                    <p><i class="fas fa-envelope"></i> info@landlordi.mw</p>
+                    <p><i class="fas fa-map-marker-alt"></i> City Centre, Lilongwe, Malawi</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Landlordi Real Estate. All rights reserved. Serving Malawi's Property Market.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

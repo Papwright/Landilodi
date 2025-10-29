@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Landlordi Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>LANDLORDI REAL ESTATE</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="properties.html" class="nav-link">Properties</a>
+                </li>
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="logoutBtn">Logout</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <section class="dashboard-container">
+        <div class="container">
+            <!-- Welcome Header -->
+            <div class="dashboard-header">
+                <div class="user-welcome">
+                    <h1>Welcome back, <span id="userName">User</span>!</h1>
+                    <p>Manage your properties and respond to viewing requests</p>
+                </div>
+                <div class="user-status">
+                    <span class="status-badge" id="verificationStatus">
+                        <i class="fas fa-clock"></i> Pending Verification
+                    </span>
+                </div>
+            </div>
+
+            <!-- Dashboard Stats -->
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalProperties">0</h3>
+                        <p>Total Properties</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalViews">0</h3>
+                        <p>Total Views</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="viewingRequests">0</h3>
+                        <p>Viewing Requests</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="totalInquiries">0</h3>
+                        <p>Inquiries</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Tabs -->
+            <div class="dashboard-tabs">
+                <button class="dashboard-tab active" data-tab="properties">
+                    <i class="fas fa-home"></i> My Properties
+                </button>
+                <button class="dashboard-tab" data-tab="viewing-requests">
+                    <i class="fas fa-calendar-check"></i> Viewing Requests
+                </button>
+                <button class="dashboard-tab" data-tab="profile">
+                    <i class="fas fa-user"></i> My Profile
+                </button>
+                <button class="dashboard-tab" data-tab="add-property">
+                    <i class="fas fa-plus-circle"></i> Add Property
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="dashboard-content">
+                <!-- My Properties Tab -->
+                <div class="tab-pane active" id="properties">
+                    <div class="content-header">
+                        <h2>My Properties</h2>
+                        <button class="btn btn-primary" onclick="showTab('add-property')">
+                            <i class="fas fa-plus"></i> Add New Property
+                        </button>
+                    </div>
+                    <div id="propertiesList" class="properties-list">
+                        <p class="empty-state">
+                            <i class="fas fa-home"></i>
+                            You haven't listed any properties yet. Click "Add New Property" to get started!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Viewing Requests Tab -->
+                <div class="tab-pane" id="viewing-requests">
+                    <div class="content-header">
+                        <h2>Viewing Requests</h2>
+                        <select class="filter-select" id="requestFilter" aria-label="Filter viewing requests">
+                            <option value="all">All Requests</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="declined">Declined</option>
+                        </select>
+                    </div>
+                    <div id="viewingRequestsList" class="viewing-requests-list">
+                        <p class="empty-state">
+                            <i class="fas fa-calendar"></i>
+                            No viewing requests yet. They will appear here when buyers are interested in your properties.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Profile Tab -->
+                <div class="tab-pane" id="profile">
+                    <div class="content-header">
+                        <h2>My Profile</h2>
+                    </div>
+                    <div class="profile-container">
+                        <div class="profile-card">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="profile-info" id="profileInfo">
+                                <!-- Profile info will be loaded here -->
+                            </div>
+                            <button class="btn btn-secondary" onclick="enableProfileEdit()">
+                                <i class="fas fa-edit"></i> Edit Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Property Tab -->
+                <div class="tab-pane" id="add-property">
+                    <div class="content-header">
+                        <h2>Add New Property</h2>
+                    </div>
+                    <form class="property-form" id="addPropertyForm">
+                        <div class="form-section">
+                            <h3>Property Details</h3>
+                            
+                            <div class="form-group">
+                                <label for="propertyTitle">Property Title</label>
+                                <input type="text" id="propertyTitle" required placeholder="e.g., 4-Bedroom House in Area 43">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="propertyType">Property Type</label>
+                                    <select id="propertyType" required>
+                                        <option value="">Select type</option>
+                                        <option value="house">Residential House</option>
+                                        <option value="apartment">Apartment/Flat</option>
+                                        <option value="plot">Land/Plot</option>
+                                        <option value="commercial">Commercial Property</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="listingType">Listing Type</label>
+                                    <select id="listingType" required>
+                                        <option value="">Select type</option>
+                                        <option value="sale">For Sale</option>
+                                        <option value="rent">For Rent</option>
+                                        <option value="lease">For Lease</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="propertyDescription">Description</label>
+                                <textarea id="propertyDescription" rows="5" required placeholder="Describe your property, including features, amenities, and unique selling points..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Location</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="propertyCity">City</label>
+                                    <select id="propertyCity" required>
+                                        <option value="">Select city</option>
+                                        <option value="Lilongwe">Lilongwe</option>
+                                        <option value="Blantyre">Blantyre</option>
+                                        <option value="Mzuzu">Mzuzu</option>
+                                        <option value="Zomba">Zomba</option>
+                                        <option value="Mangochi">Mangochi</option>
+                                        <option value="Kasungu">Kasungu</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="propertyArea">Area/Location</label>
+                                    <input type="text" id="propertyArea" required placeholder="e.g., Area 43, Namiwawa">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="propertyAddress">Full Address (Optional)</label>
+                                <input type="text" id="propertyAddress" placeholder="Street address or plot number">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Property Features</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="bedrooms">Bedrooms</label>
+                                    <input type="number" id="bedrooms" min="0" placeholder="Number of bedrooms">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bathrooms">Bathrooms</label>
+                                    <input type="number" id="bathrooms" min="0" placeholder="Number of bathrooms">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="propertySize">Size (sqm)</label>
+                                    <input type="number" id="propertySize" min="0" required placeholder="Property size in square meters">
+                                </div>
+                                <div class="form-group">
+                                    <label for="parking">Parking Spaces</label>
+                                    <input type="number" id="parking" min="0" placeholder="Number of parking spaces">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Pricing</h3>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="propertyPrice">Price (MWK)</label>
+                                    <input type="number" id="propertyPrice" required placeholder="Enter price in Malawi Kwacha">
+                                </div>
+                                <div class="form-group" id="rentPeriodGroup">
+                                    <label for="rentPeriod">Rent Period</label>
+                                    <select id="rentPeriod">
+                                        <option value="month">Per Month</option>
+                                        <option value="year">Per Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Property Images</h3>
+                            
+                            <div class="form-group">
+                                <label for="propertyImages">Upload Images (Max 8 images)</label>
+                                <input type="file" id="propertyImages" accept="image/*" multiple class="file-input">
+                                <small class="form-hint">Select up to 8 high-quality images of your property (JPG, PNG, max 2MB each)</small>
+                            </div>
+                            
+                            <div id="imagePreviewContainer" class="image-preview-container"></div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Additional Information</h3>
+                            
+                            <div class="form-group">
+                                <label>Available Amenities</label>
+                                <div class="checkbox-grid">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="Borehole Water">
+                                        <span>Borehole Water</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="Generator">
+                                        <span>Backup Generator</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="Solar Panels">
+                                        <span>Solar Panels</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="Security">
+                                        <span>24/7 Security</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="Swimming Pool">
+                                        <span>Swimming Pool</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="Servants Quarters">
+                                        <span>Servants Quarters</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="Tarred Road">
+                                        <span>Tarred Road Access</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="Title Deed">
+                                        <span>Title Deed Available</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactPreference">Preferred Contact Method</label>
+                                <select id="contactPreference" required>
+                                    <option value="phone">Phone</option>
+                                    <option value="email">Email</option>
+                                    <option value="both">Phone & Email</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-check"></i> Submit Property for Verification
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="document.getElementById('addPropertyForm').reset()">
+                                <i class="fas fa-times"></i> Clear Form
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LANDLORDI REAL ESTATE</h3>
+                    <p>Malawi's trusted property marketplace connecting landlords, property owners with buyers and tenants.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="properties.html">Browse Properties</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +265 (0) 888 123 456</p>
+                    <p><i class="fas fa-envelope"></i> info@landlordi.mw</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

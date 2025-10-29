@@ -1,0 +1,35 @@
+{
+  "name": "landlordi-real-estate",
+  "version": "2.0.0",
+  "description": "Malawi's trusted property marketplace connecting buyers, sellers, and renters",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -o",
+    "dev": "npx live-server --port=8000",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Papwright/Landlordi.git"
+  },
+  "keywords": [
+    "real-estate",
+    "property",
+    "malawi",
+    "marketplace",
+    "housing",
+    "rental",
+    "property-management",
+    "landlord",
+    "tenant"
+  ],
+  "author": "Timothy Papwright",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Papwright/Landlordi/issues"
+  },
+  "homepage": "https://github.com/Papwright/Landlordi#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

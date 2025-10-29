@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties - Landlordi Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>LANDLORDI REAL ESTATES</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="properties.html" class="nav-link active">Properties</a>
+                </li>
+                <li class="nav-item">
+                    <a href="reviews.html" class="nav-link">House Viewing Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a href="employees.html" class="nav-link">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item" id="authNavItem">
+                    <a href="login.html" class="nav-link" id="authNavLink">Login</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Browse Properties in Malawi</h1>
+            <p>Verified listings from trusted property owners and agents across Malawi</p>
+        </div>
+    </section>
+
+    <!-- Property Filters -->
+    <section class="property-filters">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Properties</button>
+                <button class="filter-btn" data-filter="houses">Residential Houses</button>
+                <button class="filter-btn" data-filter="apartments">Apartments</button>
+                <button class="filter-btn" data-filter="plots">Land & Plots</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+            </div>
+            
+            <!-- Location Chooser -->
+            <div class="location-chooser-container">
+                <div class="location-chooser">
+                    <div class="location-method">
+                        <label for="locationMethod">
+                            <i class="fas fa-map-marker-alt"></i> Choose your location:
+                        </label>
+                        <div class="location-options">
+                            <select id="citySelector" onchange="selectCity(this.value)" aria-label="Select a city">
+                                <option value="">Select a city...</option>
+                            </select>
+                            <button class="btn btn-gps" onclick="useMyGPSLocation()">
+                                <i class="fas fa-crosshairs"></i> Use My GPS Location
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="location-status" id="locationStatusDisplay">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="locationStatusText"></span>
+                    </div>
+                </div>
+                
+                <!-- Distance Filter (shows after location is set) -->
+                <div class="distance-filter" id="distanceFilterContainer">
+                    <label for="distanceRange">
+                        <i class="fas fa-ruler"></i> Show properties within:
+                    </label>
+                    <select id="distanceRange" onchange="applyDistanceFilter(this.value)">
+                        <option value="">All distances</option>
+                        <option value="5">5 km</option>
+                        <option value="10">10 km</option>
+                        <option value="20">20 km</option>
+                        <option value="50">50 km</option>
+                        <option value="100">100 km</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Grid -->
+    <section class="properties-showcase">
+        <div class="container">
+            <!-- Dynamic properties from users will load here -->
+            <div class="property-grid"></div>
+            
+            <!-- Static example properties (hidden by default, shown only if no user properties) -->
+            <div class="properties-grid-extended">
+                <!-- House 1 -->
+                <div class="property-item-extended" data-category="houses" data-aos="fade-up">
+                    <div class="property-image-container-extended">
+                        <div class="property-image-placeholder-extended"></div>
+                        <div class="property-badge">Verified</div>
+                        <div class="property-overlay">
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                    <div class="property-details-extended">
+                        <h3>4-Bedroom House in Area 43</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Area 43, Lilongwe</p>
+                        <p class="property-price">MWK 85,000,000</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 4 Beds</span>
+                            <span><i class="fas fa-bath"></i> 3 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 280 sqm</span>
+                            <span><i class="fas fa-car"></i> 2 Car Garage</span>
+                        </div>
+                        <p class="property-description">
+                            Modern family home with spacious rooms, fitted kitchen, secure compound with 
+                            perimeter wall, borehole water, backup generator, and servants quarters. Title deed available.
+                        </p>
+                        <div class="property-actions">
+                            <a href="#" class="btn btn-outline">Schedule Viewing</a>
+                            <a href="#" class="btn btn-secondary">Contact Owner</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plot 1 -->
+                <div class="property-item-extended" data-category="plots" data-aos="fade-up" data-aos-delay="100">
+                    <div class="property-image-container-extended">
+                        <div class="property-image-placeholder-extended"></div>
+                        <div class="property-badge">New Listing</div>
+                        <div class="property-overlay">
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                    <div class="property-details-extended">
+                        <h3>Residential Plot in Namiwawa</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Namiwawa, Blantyre</p>
+                        <p class="property-price">MWK 45,000,000</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-ruler-combined"></i> 1,200 sqm</span>
+                            <span><i class="fas fa-certificate"></i> Title Deed</span>
+                            <span><i class="fas fa-map-marked"></i> Surveyed</span>
+                            <span><i class="fas fa-check-circle"></i> Ready to Build</span>
+                        </div>
+                        <p class="property-description">
+                            Prime residential plot in upscale Namiwawa area. Flat terrain, all utilities available 
+                            (water, electricity), tarred road access. Ideal for building your dream home.
+                        </p>
+                        <div class="property-actions">
+                            <a href="#" class="btn btn-outline">Schedule Viewing</a>
+                            <a href="#" class="btn btn-secondary">Contact Owner</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Apartment 1 -->
+                <div class="property-item-extended" data-category="apartments" data-aos="fade-up" data-aos-delay="200">
+                    <div class="property-image-container-extended">
+                        <div class="property-image-placeholder-extended"></div>
+                        <div class="property-badge">For Rent</div>
+                        <div class="property-overlay">
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                    <div class="property-details-extended">
+                        <h3>2-Bedroom Apartment in Area 9</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Area 9, Lilongwe</p>
+                        <p class="property-price">MWK 550,000/month</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 2 Beds</span>
+                            <span><i class="fas fa-bath"></i> 2 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 110 sqm</span>
+                            <span><i class="fas fa-shield-alt"></i> Secure Complex</span>
+                        </div>
+                        <p class="property-description">
+                            Modern apartment in secure gated complex with 24/7 security, reliable water supply, 
+                            backup generator, parking space, and close to shopping centers.
+                        </p>
+                        <div class="property-actions">
+                            <a href="#" class="btn btn-outline">Schedule Viewing</a>
+                            <a href="#" class="btn btn-secondary">Contact Owner</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- House 2 -->
+                <div class="property-item-extended" data-category="houses" data-aos="fade-up" data-aos-delay="300">
+                    <div class="property-image-container-extended">
+                        <div class="property-image-placeholder-extended"></div>
+                        <div class="property-badge">Premium</div>
+                        <div class="property-overlay">
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                    <div class="property-details-extended">
+                        <h3>Executive House in Crossroads</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Crossroads, Lilongwe</p>
+                        <p class="property-price">MWK 125,000,000</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-bed"></i> 5 Beds</span>
+                            <span><i class="fas fa-bath"></i> 4 Baths</span>
+                            <span><i class="fas fa-ruler-combined"></i> 350 sqm</span>
+                            <span><i class="fas fa-swimming-pool"></i> Swimming Pool</span>
+                        </div>
+                        <p class="property-description">
+                            Luxury executive house with modern finishes, swimming pool, landscaped garden, 
+                            24/7 security, borehole, solar backup, and staff quarters. Prime location near embassies.
+                        </p>
+                        <div class="property-actions">
+                            <a href="#" class="btn btn-outline">Schedule Viewing</a>
+                            <a href="#" class="btn btn-secondary">Contact Owner</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Commercial 1 -->
+                <div class="property-item-extended" data-category="commercial" data-aos="fade-up" data-aos-delay="400">
+                    <div class="property-image-container-extended">
+                        <div class="property-image-placeholder-extended"></div>
+                        <div class="property-badge">Commercial</div>
+                        <div class="property-overlay">
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                    <div class="property-details-extended">
+                        <h3>Shop/Office Space City Centre</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> City Centre, Blantyre</p>
+                        <p class="property-price">MWK 2,500,000/month</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-ruler-combined"></i> 180 sqm</span>
+                            <span><i class="fas fa-parking"></i> Parking</span>
+                            <span><i class="fas fa-wifi"></i> High-Speed Internet</span>
+                            <span><i class="fas fa-door-open"></i> Ground Floor</span>
+                        </div>
+                        <p class="property-description">
+                            Prime commercial space in Blantyre's bustling city centre. Perfect for retail shop, 
+                            office, or service business. High foot traffic, secure building, dedicated parking.
+                        </p>
+                        <div class="property-actions">
+                            <a href="#" class="btn btn-outline">Schedule Viewing</a>
+                            <a href="#" class="btn btn-secondary">Contact Owner</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plot 2 -->
+                <div class="property-item-extended" data-category="plots" data-aos="fade-up" data-aos-delay="500">
+                    <div class="property-image-container-extended">
+                        <div class="property-image-placeholder-extended"></div>
+                        <div class="property-badge">Investment</div>
+                        <div class="property-overlay">
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                    <div class="property-details-extended">
+                        <h3>Commercial Plot Kanengo</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt"></i> Kanengo, Lilongwe</p>
+                        <p class="property-price">MWK 95,000,000</p>
+                        <div class="property-features">
+                            <span><i class="fas fa-ruler-combined"></i> 2,500 sqm</span>
+                            <span><i class="fas fa-certificate"></i> Title Deed</span>
+                            <span><i class="fas fa-road"></i> Main Road</span>
+                            <span><i class="fas fa-industry"></i> Commercial Zone</span>
+                        </div>
+                        <p class="property-description">
+                            Prime commercial plot along Kanengo main road. Perfect for warehouse, factory, or 
+                            shopping complex. All utilities available, high traffic area, excellent investment opportunity.
+                        </p>
+                        <div class="property-actions">
+                            <a href="#" class="btn btn-outline">Schedule Viewing</a>
+                            <a href="#" class="btn btn-secondary">Contact Owner</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Find Your Dream Home?</h2>
+                <p>Our expert agents are here to help you find the perfect property</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Contact Us Today</a>
+                    <a href="tel:+15551234567" class="btn btn-secondary">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LANDLORDI REAL ESTATE</h3>
+                    <p>Malawi's trusted property marketplace connecting landlords, property owners with buyers and tenants. Transparent, verified, and secure.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Visit our Facebook page"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Visit our Instagram page"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Visit our LinkedIn page"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Visit our Twitter page"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="properties.html">Browse Properties</a></li>
+                        <li><a href="reviews.html">Customer Reviews</a></li>
+                        <li><a href="employees.html">Our Team</a></li>
+                        <li><a href="contact.html">Post Property</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +265 (0) 888 123 456</p>
+                    <p><i class="fas fa-envelope"></i> info@landlordi.mw</p>
+                    <p><i class="fas fa-map-marker-alt"></i> City Centre, Lilongwe, Malawi</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Landlordi Real Estate. All rights reserved. Serving Malawi's Property Market.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script src="location-filter.js"></script>
+    <script src="demo-properties.js"></script>
+    <script src="properties-loader.js"></script>
+    <script>
+        // Populate city selector on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const citySelector = document.getElementById('citySelector');
+            if (citySelector && window.locationFilter) {
+                const cities = window.locationFilter.getCities();
+                cities.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city.value;
+                    option.textContent = city.label;
+                    citySelector.appendChild(option);
+                });
+            }
+        });
+
+        // Select city manually
+        function selectCity(cityName) {
+            if (!cityName) {
+                window.locationFilter.clearLocation();
+                window.selectedCity = null;
+                updateLocationUI('No location selected - Showing all properties', false);
+                loadAllProperties();
+                return;
+            }
+
+            if (window.locationFilter.setManualLocation(cityName)) {
+                window.selectedCity = cityName;
+                updateLocationUI(`Showing properties in ${window.locationFilter.getLocationLabel()}`, true);
+                filterAndLoadProperties();
+            }
+        }
+
+        // Filter properties by selected city
+        function filterAndLoadProperties() {
+            const users = JSON.parse(localStorage.getItem('landlordi_users') || '[]');
+            let allProperties = [];
+            
+            // Collect all properties from all users
+            users.forEach(user => {
+                if (user.properties && Array.isArray(user.properties)) {
+                    user.properties.forEach(property => {
+                        // Only show active/verified properties
+                        if (property.status === 'active' || property.status === 'verified') {
+                            allProperties.push({
+                                ...property,
+                                ownerName: `${user.firstName} ${user.lastName}`,
+                                ownerPhone: user.phone,
+                                ownerEmail: user.email
+                            });
+                        }
+                    });
+                }
+            });
+            
+            // Filter by selected city if set
+            if (window.selectedCity) {
+                allProperties = allProperties.filter(property => {
+                    return property.city && property.city.toLowerCase() === window.selectedCity.toLowerCase();
+                });
+                console.log(`🏙️ Filtered to ${allProperties.length} properties in ${window.selectedCity}`);
+            }
+            
+            // Sort by distance if location is available
+            if (window.locationFilter && window.locationFilter.userLocation) {
+                allProperties = window.locationFilter.sortByDistance(allProperties);
+            }
+            
+            displayProperties(allProperties);
+            window.allPropertiesData = allProperties;
+        }
+
+        // Use GPS location
+        function useMyGPSLocation() {
+            const btn = event.target.closest('button');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Getting location...';
+            btn.disabled = true;
+
+            window.locationFilter.getUserLocation()
+                .then(location => {
+                    window.locationFilter.locationType = 'gps';
+                    updateLocationUI(`GPS Location obtained (±${Math.round(location.accuracy)}m accuracy)`, true);
+                    loadAllProperties();
+                    btn.innerHTML = originalHTML;
+                    btn.disabled = false;
+                    
+                    // Reset city selector
+                    document.getElementById('citySelector').value = '';
+                })
+                .catch(error => {
+                    alert('Could not get your location. Please ensure location services are enabled and you have granted permission.');
+                    btn.innerHTML = originalHTML;
+                    btn.disabled = false;
+                });
+        }
+
+        // Update location UI
+        function updateLocationUI(message, success) {
+            const statusDisplay = document.getElementById('locationStatusDisplay');
+            const statusText = document.getElementById('locationStatusText');
+            const distanceContainer = document.getElementById('distanceFilterContainer');
+
+            if (statusDisplay && statusText) {
+                statusDisplay.style.display = 'flex';
+                statusText.textContent = message;
+                statusDisplay.style.color = success ? '#28a745' : '#666';
+                
+                if (success) {
+                    statusDisplay.querySelector('i').className = 'fas fa-check-circle';
+                } else {
+                    statusDisplay.querySelector('i').className = 'fas fa-info-circle';
+                }
+            }
+
+            // Show/hide distance filter
+            if (distanceContainer) {
+                distanceContainer.style.display = success ? 'flex' : 'none';
+            }
+        }
+        
+        // Distance filter function
+        function applyDistanceFilter(maxDistance) {
+            if (!window.allPropertiesData) return;
+            
+            let filteredProperties = window.allPropertiesData;
+            
+            // Apply distance filter if set
+            if (maxDistance && window.locationFilter) {
+                const distanceKm = parseFloat(maxDistance);
+                filteredProperties = window.locationFilter.filterByDistance(filteredProperties, distanceKm);
+                console.log(`📍 Filtered to ${filteredProperties.length} properties within ${distanceKm} km`);
+            }
+            
+            displayProperties(filteredProperties);
+        }
+        
+        // Legacy property filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const propertyItems = document.querySelectorAll('.property-item-extended');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    propertyItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            item.style.animation = 'fadeInUp 0.6s ease';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

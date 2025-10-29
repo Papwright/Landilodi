@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Reviews - Landlordi Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>LANDLORDI REAL ESTATES</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="properties.html" class="nav-link">Properties</a>
+                </li>
+                <li class="nav-item">
+                    <a href="reviews.html" class="nav-link active">House Viewing Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a href="employees.html" class="nav-link">Our Team</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item" id="authNavItem">
+                    <a href="login.html" class="nav-link" id="authNavLink">Login</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Customer Reviews & Experiences</h1>
+            <p>See what buyers, sellers, and tenants say about using Landlordi Real Estate</p>
+        </div>
+    </section>
+
+    <!-- Overall Rating Section -->
+    <section class="overall-rating">
+        <div class="container">
+            <div class="rating-summary">
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h2>4.8/5.0</h2>
+                <p>Based on 215 verified reviews</p>
+                <div class="rating-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">96%</span>
+                        <span class="stat-label">Would Recommend</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.9</span>
+                        <span class="stat-label">Trust & Safety</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.7</span>
+                        <span class="stat-label">Property Accuracy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Grid -->
+    <section class="reviews-showcase">
+        <div class="container">
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card" data-aos="fade-up">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>John Phiri</h4>
+                                <p class="reviewer-location">Lilongwe, Malawi</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h3>Found My Dream Home Safely</h3>
+                        <p class="review-text">
+                            "I was tired of being scammed by fake agents. Landlordi helped me find a verified 
+                            4-bedroom house in Area 43. The agent Patrick was professional, showed me the actual 
+                            title deed, and the owner was genuine. Best property platform in Malawi!"
+                        </p>
+                        <div class="review-property">
+                            <span class="property-tag">House</span>
+                            <span class="property-location">Area 43, Lilongwe</span>
+                        </div>
+                        <p class="review-date">Reviewed on September 10, 2024</p>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Tawonga Mbewe</h4>
+                                <p class="reviewer-location">Blantyre, Malawi</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h3>Sold My Property Quickly</h3>
+                        <p class="review-text">
+                            "As a landlord, I listed my Namiwawa plot on Landlordi. Within 2 weeks, I had 
+                            serious buyers. The verification process gave buyers confidence, and I got a fair 
+                            price without paying viewing fees to strangers. Excellent service!"
+                        </p>
+                        <div class="review-property">
+                            <span class="property-tag">Land Plot</span>
+                            <span class="property-location">Namiwawa, Blantyre</span>
+                        </div>
+                        <p class="review-date">Reviewed on March 12, 2024</p>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Emily Rodriguez</h4>
+                                <p class="reviewer-location">Downtown LA</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h3>Luxury Penthouse Tour</h3>
+                        <p class="review-text">
+                            "The penthouse viewing in Century City was spectacular. The agent's expertise 
+                            in luxury real estate was evident. They highlighted every amenity and the 
+                            panoramic city views were incredible."
+                        </p>
+                        <div class="review-property">
+                            <span class="property-tag">Penthouse</span>
+                            <span class="property-location">Century City Penthouse</span>
+                        </div>
+                        <p class="review-date">Reviewed on March 10, 2024</p>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>David Thompson</h4>
+                                <p class="reviewer-location">Pasadena, CA</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h3>Historic Estate Viewing</h3>
+                        <p class="review-text">
+                            "The historic estate viewing in Pasadena was like stepping back in time. 
+                            The agent's knowledge of the property's history was fascinating. The gardens 
+                            and architectural details were magnificent."
+                        </p>
+                        <div class="review-property">
+                            <span class="property-tag">Historic Estate</span>
+                            <span class="property-location">Pasadena Historic Estate</span>
+                        </div>
+                        <p class="review-date">Reviewed on March 8, 2024</p>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="review-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Lisa Park</h4>
+                                <p class="reviewer-location">Arts District, LA</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h3>Modern Loft Experience</h3>
+                        <p class="review-text">
+                            "The Arts District loft viewing was perfect for our creative lifestyle. 
+                            The agent understood exactly what we were looking for and showed us the 
+                            perfect space with amazing natural light and character."
+                        </p>
+                        <div class="review-property">
+                            <span class="property-tag">Loft</span>
+                            <span class="property-location">Arts District Loft</span>
+                        </div>
+                        <p class="review-date">Reviewed on March 5, 2024</p>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="review-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="reviewer-details">
+                                <h4>Robert Williams</h4>
+                                <p class="reviewer-location">Beverly Hills, CA</p>
+                            </div>
+                        </div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        <h3>Premium Apartment Viewing</h3>
+                        <p class="review-text">
+                            "The premium apartment viewing exceeded all expectations. The concierge 
+                            services were impressive, and the agent's attention to detail was remarkable. 
+                            The property quality was exceptional."
+                        </p>
+                        <div class="review-property">
+                            <span class="property-tag">Apartment</span>
+                            <span class="property-location">Beverly Hills Premium</span>
+                        </div>
+                        <p class="review-date">Reviewed on March 3, 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Review Categories -->
+    <section class="review-categories">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Love</h2>
+            <div class="categories-grid">
+                <div class="category-item" data-aos="zoom-in">
+                    <i class="fas fa-eye"></i>
+                    <h3>Property Presentation</h3>
+                    <p>Exceptional attention to detail in showcasing properties</p>
+                    <span class="category-rating">4.9/5</span>
+                </div>
+                <div class="category-item" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Agent Expertise</h3>
+                    <p>Highly knowledgeable and professional real estate agents</p>
+                    <span class="category-rating">4.9/5</span>
+                </div>
+                <div class="category-item" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-clock"></i>
+                    <h3>Viewing Flexibility</h3>
+                    <p>Convenient scheduling and flexible viewing times</p>
+                    <span class="category-rating">4.8/5</span>
+                </div>
+                <div class="category-item" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-home"></i>
+                    <h3>Property Quality</h3>
+                    <p>Premium properties that exceed expectations</p>
+                    <span class="category-rating">4.9/5</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Experience Luxury Property Viewing?</h2>
+                <p>Schedule your private viewing with our expert agents</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Schedule Viewing</a>
+                    <a href="properties.html" class="btn btn-secondary">Browse Properties</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LANDLORDI REAL ESTATE</h3>
+                    <p>Malawi's trusted property marketplace connecting landlords, property owners with buyers and tenants. Transparent, verified, and secure.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Visit our Facebook page"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Visit our Instagram page"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Visit our LinkedIn page"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Visit our Twitter page"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="properties.html">Browse Properties</a></li>
+                        <li><a href="reviews.html">Customer Reviews</a></li>
+                        <li><a href="employees.html">Our Team</a></li>
+                        <li><a href="contact.html">Post Property</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +265 (0) 888 123 456</p>
+                    <p><i class="fas fa-envelope"></i> info@landlordi.mw</p>
+                    <p><i class="fas fa-map-marker-alt"></i> City Centre, Lilongwe, Malawi</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Landlordi Real Estate. All rights reserved. Serving Malawi's Property Market.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
